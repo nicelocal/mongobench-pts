@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--Phoronix Test Suite v10.8.4-->
+<PhoronixTestSuite>
+  <TestInformation>
+    <Title>mongobench</Title>
+    <Description>Parallel MongoDB benchmark based on the official Golang driver.</Description>
+    <ResultScale>Seconds</ResultScale>
+    <Proportion>LIB</Proportion>
+    <TimesToRun>3</TimesToRun>
+  </TestInformation>
+  <TestProfile>
+    <Version>1.0.0</Version>
+    <SupportedPlatforms>Linux</SupportedPlatforms>
+    <SoftwareType>Application</SoftwareType>
+    <TestType>System</TestType>
+    <ExternalDependencies>Go</ExternalDependencies>
+    <License>Free</License>
+    <Status>Verified</Status>
+    <ProjectURL>https://www.mongodb.com/</ProjectURL>
+    <RepositoryURL>https://github.com/nicelocal/mongobench</RepositoryURL>
+    <Maintainer>Daniil Gentili</Maintainer>
+  </TestProfile>
+</PhoronixTestSuite>

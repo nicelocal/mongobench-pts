@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--Phoronix Test Suite v10.8.4-->
+<PhoronixTestSuite>
+  <ResultsParser>
+    <OutputTemplate>Results for write: 100000 times single-threaded took #_RESULT_# seconds</OutputTemplate>
+    <LineHint>Results for write: 100000 times single-threaded</LineHint>
+    <ArgumentsDescription>100k writes, 1 thread</ArgumentsDescription>
+  </ResultsParser>
+  <ResultsParser>
+    <OutputTemplate>Results for read: 100000 times single-threaded took #_RESULT_# seconds</OutputTemplate>
+    <LineHint>Results for read: 100000 times single-threaded</LineHint>
+    <ArgumentsDescription>100k reads, 1 thread</ArgumentsDescription>
+  </ResultsParser>
+  <ResultsParser>
+    <OutputTemplate>Results for read: 100000 times multi-threaded took #_RESULT_# seconds</OutputTemplate>
+    <LineHint>Results for read: 100000 times multi-threaded</LineHint>
+    <ArgumentsDescription>nproc*100k reads, nproc threads</ArgumentsDescription>
+  </ResultsParser>
+  <ResultsParser>
+    <OutputTemplate>Results for write: 100000 times multi-threaded took #_RESULT_# seconds</OutputTemplate>
+    <LineHint>Results for write: 100000 times multi-threaded</LineHint>
+    <ArgumentsDescription>nproc*100k reads, nproc threads</ArgumentsDescription>
+  </ResultsParser>
+</PhoronixTestSuite>
