@@ -10,9 +10,9 @@ mkdir -p ~/.phoronix-test-suite/test-suites/pts
 mkdir -p ~/.phoronix-test-suite/installed-tests/pts/
 mkdir -p ~/.phoronix-test-suite/test-profiles/pts/
 
-cp -a . ~/.phoronix-test-suite/test-suites/pts/mongobench
-cp -a . ~/.phoronix-test-suite/installed-tests/pts/
-cp -a . ~/.phoronix-test-suite/test-profiles/pts/
+cp -a mongobench-pts ~/.phoronix-test-suite/test-suites/pts/mongobench
+cp -a mongobench-pts ~/.phoronix-test-suite/installed-tests/pts/
+cp -a mongobench-pts ~/.phoronix-test-suite/test-profiles/pts/
 ```
 
 Manual install (as root):
@@ -24,7 +24,7 @@ mkdir -p /var/lib/phoronix-test-suite/test-suites/pts
 mkdir -p /var/lib/phoronix-test-suite/installed-tests/pts/
 mkdir -p /var/lib/phoronix-test-suite/test-profiles/pts/
 
-cp -a . /var/lib/phoronix-test-suite/test-suites/pts/mongobench
-cp -a . /var/lib/phoronix-test-suite/installed-tests/pts/
-cp -a . /var/lib/phoronix-test-suite/test-profiles/pts/
+cp -a mongobench-pts /var/lib/phoronix-test-suite/test-suites/pts/mongobench
+cp -a mongobench-pts /var/lib/phoronix-test-suite/installed-tests/pts/
+cp -a mongobench-pts /var/lib/phoronix-test-suite/test-profiles/pts/
 ```
