@@ -1,2 +1,2 @@
 # MongoBench-pts
-MongoDB benchmarking suite for the Phoronix Test Suite.
+Parallelized MongoDB benchmarking suite for the Phoronix Test Suite based on the official Golang driver.

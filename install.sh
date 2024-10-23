@@ -1,5 +1,5 @@
 #!/bin/sh -e
 
-go build ./mongobench.go -o mongobench
+go build -o mongobench ./mongobench.go
 
 
