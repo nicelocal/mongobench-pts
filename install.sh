@@ -1,5 +1,7 @@
-#!/bin/sh -e
+#!/bin/sh
 
-go build -o mongobench ./mongobench.go
+set -ex
 
+cd "$(dirname "$0")"
 
+go build -o "$1/mongobench" ./mongobench.go
