@@ -19,6 +19,6 @@
   <ResultsParser>
     <OutputTemplate>Results for write: 100000 times multi-threaded took #_RESULT_# seconds</OutputTemplate>
     <LineHint>Results for write: 100000 times multi-threaded</LineHint>
-    <ArgumentsDescription>nproc*100k reads, nproc threads</ArgumentsDescription>
+    <ArgumentsDescription>nproc*100k writes, nproc threads</ArgumentsDescription>
   </ResultsParser>
 </PhoronixTestSuite>
