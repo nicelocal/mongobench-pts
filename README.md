@@ -32,3 +32,9 @@ cp -a . /var/lib/phoronix-test-suite/test-suites/pts/mongobench
 cp -a . /var/lib/phoronix-test-suite/installed-tests/pts/mongobench
 cp -a . /var/lib/phoronix-test-suite/test-profiles/pts/mongobench
 ```
+
+Run:
+
+```
+phoronix-test-suite benchmark pts/mongobench
+```
