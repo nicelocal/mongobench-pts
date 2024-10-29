@@ -87,7 +87,7 @@ func main() {
 	var out io.Writer = os.Stdout
 	logFile := os.Getenv("LOG_FILE")
 	if logFile != "" {
-		f, err := os.Open(logFile)
+		f, err := os.Create(logFile)
 		if err != nil {
 			log.Fatal("Could not open logfile:", err)
 		}
