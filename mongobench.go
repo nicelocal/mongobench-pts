@@ -3,7 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
+	"os"
 	"runtime"
 	"sync"
 	"time"
@@ -13,7 +15,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func RunBench(coll *mongo.Collection, name string, fn func(int, int, *mongo.Collection, *sync.WaitGroup), cnt int, multithread bool) {
+func RunBench(out io.Writer, coll *mongo.Collection, name string, fn func(int, int, *mongo.Collection, *sync.WaitGroup), cnt int, multithread bool) {
 	var mt string
 	var threads int
 	if multithread {
@@ -24,7 +26,7 @@ func RunBench(coll *mongo.Collection, name string, fn func(int, int, *mongo.Coll
 		threads = 1
 	}
 
-	fmt.Printf("\nStarting %s: %d times %s\n", name, cnt, mt)
+	fmt.Fprintf(out, "\nStarting %s: %d times %s\n", name, cnt, mt)
 	var wg sync.WaitGroup
 	t := time.Now()
 
@@ -34,7 +36,7 @@ func RunBench(coll *mongo.Collection, name string, fn func(int, int, *mongo.Coll
 	}
 	wg.Wait()
 
-	fmt.Printf("Results for %s: %d times %s took %f seconds\n", name, cnt, mt, time.Since(t).Seconds())
+	fmt.Fprintf(out, "Results for %s: %d times %s took %f seconds\n", name, cnt, mt, time.Since(t).Seconds())
 }
 
 func RunReadOne(cnt int, offset int, coll *mongo.Collection, wg *sync.WaitGroup) {
@@ -82,6 +84,16 @@ func main() {
 		panic(err)
 	}
 
+	var out io.Writer = os.Stdout
+	logFile := os.Getenv("LOG_FILE")
+	if logFile != "" {
+		f, err := os.Open(logFile)
+		if err != nil {
+			log.Fatal("Could not open logfile:", err)
+		}
+		out = io.MultiWriter(out, f)
+	}
+
 	for multithread, cnt := range map[bool]int{false: 100000, true: 100000} {
 		indexModel := mongo.IndexModel{
 			Keys: bson.D{{"idx", 1}},
@@ -91,9 +103,9 @@ func main() {
 			panic(err)
 		}
 
-		RunBench(coll, "write", RunWrite, cnt, multithread)
+		RunBench(out, coll, "write", RunWrite, cnt, multithread)
 
-		RunBench(coll, "read", RunReadOne, cnt, multithread)
+		RunBench(out, coll, "read", RunReadOne, cnt, multithread)
 
 		err = coll.Drop(context.Background())
 		if err != nil {
