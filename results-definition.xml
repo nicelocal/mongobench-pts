@@ -14,11 +14,11 @@
   <ResultsParser>
     <OutputTemplate>Results for read: 100000 times multi-threaded took #_RESULT_# seconds</OutputTemplate>
     <LineHint>Results for read: 100000 times multi-threaded</LineHint>
-    <ArgumentsDescription>nproc*100k reads, nproc threads</ArgumentsDescription>
+    <ArgumentsDescription>nproc/2*100k reads, nproc/2 threads</ArgumentsDescription>
   </ResultsParser>
   <ResultsParser>
     <OutputTemplate>Results for write: 100000 times multi-threaded took #_RESULT_# seconds</OutputTemplate>
     <LineHint>Results for write: 100000 times multi-threaded</LineHint>
-    <ArgumentsDescription>nproc*100k writes, nproc threads</ArgumentsDescription>
+    <ArgumentsDescription>nproc/2*100k writes, nproc/2 threads</ArgumentsDescription>
   </ResultsParser>
 </PhoronixTestSuite>

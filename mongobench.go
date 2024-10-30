@@ -21,6 +21,9 @@ func RunBench(out io.Writer, coll *mongo.Collection, name string, fn func(int, i
 	if multithread {
 		mt = "multi-threaded"
 		threads = runtime.NumCPU()
+		if threads > 1 {
+			threads /= 2
+		}
 	} else {
 		mt = "single-threaded"
 		threads = 1
